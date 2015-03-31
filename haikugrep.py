@@ -7,10 +7,8 @@ import string
 from pprint import pprint, pformat
 
 VOWELS = set("aeiouy")
-#CONSONANTS = set(string.letters) - set(VOWELS)
 
 def syllables(inword):
-#    print "Called with", inword
     inlist = list(inword.lower())
     invowels = False
     sylcount = 0
@@ -79,14 +77,14 @@ def findhaiku(inlist):
 def main():
     line = raw_input()
     wordlist = []
-    while line:
+    while True:
         line = line.strip().translate(None,(string.punctuation + '\t\r'))
         if line:
             map(lambda x:wordlist.append((x,syllables(x))),filter(None,line.split(' ')))
         try:
             line = raw_input()
         except EOFError:
-            line = ''
+            break
 
     findhaiku(wordlist)
 
