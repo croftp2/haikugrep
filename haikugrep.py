@@ -36,6 +36,8 @@ def syllables(inword):
     return sylcount
 
 def findhaiku(inlist):
+    if not inlist:
+        return
     startidx = 0
     endidx = 0
     sevenidx = 0
